@@ -1,1 +1,1 @@
-# GolandDS
+# GolangDS
