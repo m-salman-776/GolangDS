@@ -1,8 +1,8 @@
 package main
 
 import (
-	"GolangDS/linkedlist"
 	"fmt"
+	"github.com/malviyansalman/GolangDS/linkedlist"
 )
 
 func main() {
