@@ -9,3 +9,5 @@ type object interface {
 type queue[o object] struct {
 	list list.List
 }
+
+// todo
