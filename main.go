@@ -2,7 +2,7 @@ package main
 
 import (
 	"fmt"
-	"github.com/malviyansalman/GolangDS/linkedlist"
+	"github.com/m-salman-776/GolangDS/linkedlist"
 )
 
 func main() {
