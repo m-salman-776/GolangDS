@@ -4,9 +4,9 @@ type object interface {
 	int | int32 | int64 | string | byte
 }
 
-type linkedList[o object] struct {
+type LinkedList[o object] struct {
 	Val   o
-	Next  *linkedList[o]
+	Next  *LinkedList[o]
 	valid bool // to check if we really have first element
 }
 type doublyLinkedList[o object] struct {
@@ -16,8 +16,8 @@ type doublyLinkedList[o object] struct {
 	valid    bool
 }
 
-func NewLinkedList[Obj object]() *linkedList[Obj] {
-	ll := &linkedList[Obj]{}
+func NewLinkedList[Obj object]() *LinkedList[Obj] {
+	ll := &LinkedList[Obj]{}
 	return ll
 }
 func NewDoublyLinkedList[Obj object]() *doublyLinkedList[Obj] {
@@ -25,15 +25,15 @@ func NewDoublyLinkedList[Obj object]() *doublyLinkedList[Obj] {
 	dll.valid = false
 	return dll
 }
-func makeLlNode[o object](val o) *linkedList[o] {
-	ll := &linkedList[o]{
+func makeLlNode[o object](val o) *LinkedList[o] {
+	ll := &LinkedList[o]{
 		Val:   val,
 		Next:  nil,
 		valid: true,
 	}
 	return ll
 }
-func (l *linkedList[o]) AddLast(val o) *linkedList[o] {
+func (l *LinkedList[o]) AddLast(val o) *LinkedList[o] {
 	ll := makeLlNode(val)
 	if l.valid == false {
 		return ll
@@ -45,7 +45,7 @@ func (l *linkedList[o]) AddLast(val o) *linkedList[o] {
 	temp.Next = ll
 	return l
 }
-func (l *linkedList[o]) AddFront(val o) *linkedList[o] {
+func (l *LinkedList[o]) AddFront(val o) *LinkedList[o] {
 	ll := makeLlNode(val)
 	if l.valid == false {
 		return ll

@@ -1,0 +1,11 @@
+mysql:
+  host: localhost
+  port: 3306
+  username: root
+  password: rootroot
+  dbname: maps_vector_store
+
+server:
+  grpcPort: 8080
+  prometheusPort: 6060
+  protocol : tcp
