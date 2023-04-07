@@ -1,11 +1,15 @@
 package queue
 
+import "sync"
+
 type minHeap[o object] struct {
 	arr            []o
 	size           int64
 	minRebalanceTh int64
 	maxRebalanceTh int64
 	cmp            func(a o, b o)
+	wh             sync.WaitGroup
+	lock           sync.Mutex
 }
 
 type maxHeap[o object] struct {
@@ -22,6 +26,8 @@ func NewMinHeap[o object]() *minHeap[o] {
 }
 
 func (m *minHeap[o]) Empty() bool {
+	m.wh.Wait()
+	m.lock.Lock()
 	if m.getSize() > 0 {
 		return false
 	}
